@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Agrari</string>
+    <string name="welcomeText">Bienvenido a Agrari</string>
+    <string name="welcomeDescription">El lugar donde puedes encontrar el terreno ideal para tu cultivo.</string>
+    <string name="loginButtonText">Iniciar Sesión</string>
+    <string name="DoNotHaveAccountText">Aún no tengo una cuenta</string>
+    <string name="RegisterText">Registrarme</string>
 </resources>
