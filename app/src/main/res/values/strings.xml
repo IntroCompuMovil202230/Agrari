@@ -4,5 +4,16 @@
     <string name="welcomeDescription">El lugar donde puedes encontrar el terreno ideal para tu cultivo.</string>
     <string name="loginButtonText">Iniciar Sesión</string>
     <string name="DoNotHaveAccountText">Aún no tengo una cuenta</string>
-    <string name="RegisterText">Registrarme</string>
+    <string name="RegisterText"><u>Registrarme</u></string>
+    <string name="LoginText">Iniciar Sesión</string>
+    <string name="EmailText">Email</string>
+    <string name="PasswordText">Contraseña</string>
+    <string name="ContinueButtonText">Continuar</string>
+    <string name="ForgotPasswordText">Olvidé mi contraseña</string>
+    <string name="RecoverPasswordText"><u>Recuperar</u></string>
+    <string name="SignUpText">Registrarme</string>
+    <string name="TermsConditionsCheckBoxText">He leído y acepto los términos y condiciones de uso</string>
+    <string name="RecoverPasswordTitleText">Recuperar Contraseña</string>
+    <string name="RecoverPasswordSubTitleText">Te enviaremos un correo para que puedas cambiar tu contraseña.</string>
+    <string name="SendEmailButtonText">Enviar Correo</string>
 </resources>
