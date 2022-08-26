@@ -9,7 +9,6 @@
 - Paula Valentina Lopez
 - Juan Sebastián Vargas
 - Marco Valencia Dueñas
-- Jesus Alvarez Castaño 
 
 
 
