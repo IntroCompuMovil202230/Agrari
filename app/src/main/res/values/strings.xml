@@ -16,4 +16,13 @@
     <string name="RecoverPasswordTitleText">Recuperar Contraseña</string>
     <string name="RecoverPasswordSubTitleText">Te enviaremos un correo para que puedas cambiar tu contraseña.</string>
     <string name="SendEmailButtonText">Enviar Correo</string>
+    <string name="ChooseUserTypeText">¿Qué quieres ser?</string>
+    <string name="SellerText">Vendedor</string>
+    <string name="BuyerText">Comprador</string>
+    <string name="AboutUserText">Sobre ti</string>
+    <string name="UserNameText">Nombre</string>
+    <string name="LastNameText">Apellido</string>
+    <string name="BirthdayText">Fecha de nacimiento</string>
+    <string name="PhoneNumberText">Teléfono</string>
+    <string name="FinishButtonText">Finalizar</string>
 </resources>
