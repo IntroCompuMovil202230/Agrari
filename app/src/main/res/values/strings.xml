@@ -25,4 +25,10 @@
     <string name="BirthdayText">Fecha de nacimiento</string>
     <string name="PhoneNumberText">Teléfono</string>
     <string name="FinishButtonText">Finalizar</string>
+    <string name="home">Home</string>
+    <string name="homeDescription">Comienza a buscar tu futuro terreno</string>
+    <string name="porUbicacion">Por ubicación</string>
+    <string name="porMetraje">Por metraje</string>
+    <string name="busqAvanzada">Búsqueda avanzada</string>
+    <string name="categoriesText">Categorías</string>
 </resources>
