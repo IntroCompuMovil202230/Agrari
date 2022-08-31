@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MensajeActivity">
+    android:background="#FFFFFF"
+    tools:context=".ChatActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="#239089"
@@ -53,7 +54,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        
+
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:orientation="vertical"

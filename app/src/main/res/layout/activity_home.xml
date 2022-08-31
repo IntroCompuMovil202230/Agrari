@@ -130,9 +130,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:scaleType="fitCenter"
                 android:backgroundTint="#684C23"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@drawable/cafe" />
+                app:srcCompat="@drawable/cafe"/>
 
             <ImageButton
                 android:id="@+id/manzana"
@@ -143,8 +144,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@drawable/manzana" />
+                android:backgroundTint="#FF2F2F"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/manzana"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/sandia"
@@ -155,8 +158,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#44C33A"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@drawable/sandia" />
+                app:srcCompat="@drawable/sandia" />
         </LinearLayout>
 
         <LinearLayout
@@ -166,39 +171,45 @@
 
             <ImageButton
                 android:id="@+id/piña"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="142dp"
+                android:layout_height="78dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#E8AF3D"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/pina" />
 
             <ImageButton
                 android:id="@+id/maiz"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="145dp"
+                android:layout_height="79dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#9ECD47"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/maiz" />
 
             <ImageButton
                 android:id="@+id/papa"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="146dp"
+                android:layout_height="82dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#F47A1C"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/papa" />
         </LinearLayout>
 
         <LinearLayout
@@ -208,39 +219,45 @@
 
             <ImageButton
                 android:id="@+id/papaya"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="142dp"
+                android:layout_height="74dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#F3C85B"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/papaya"/>
 
             <ImageButton
                 android:id="@+id/ciruela"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="149dp"
+                android:layout_height="76dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#9C27B0"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/ciruela" />
 
             <ImageButton
                 android:id="@+id/cannabis"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_width="139dp"
+                android:layout_height="73dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/DarkGreen"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/cannabis" />
         </LinearLayout>
 
     </LinearLayout>

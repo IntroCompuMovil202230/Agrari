@@ -14,6 +14,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var metrajeButton: Button
     lateinit var advanceSearchButton: Button
     lateinit var settingsButton: BottomNavigationItemView
+    lateinit var chatButton: BottomNavigationItemView
     lateinit var sandiaButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
         metrajeButton= findViewById(R.id.porMetraje)
         advanceSearchButton= findViewById(R.id.busqAvanzada)
         settingsButton= findViewById(R.id.settingsIcon)
+        chatButton= findViewById(R.id.MensajesIcon)
         sandiaButton= findViewById(R.id.sandia)
 
 
@@ -38,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
 
         settingsButton.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
+        })
+
+
+        chatButton.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, MessagesActivity::class.java))
         })
 
         sandiaButton.setOnClickListener(View.OnClickListener {

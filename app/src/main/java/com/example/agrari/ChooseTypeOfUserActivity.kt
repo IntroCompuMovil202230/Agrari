@@ -20,7 +20,7 @@ class ChooseTypeOfUserActivity : AppCompatActivity() {
         sellerButton= findViewById(R.id.sellerButton)
 
         buyerButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this,AboutUserInfoActivity::class.java))
+            startActivity(Intent(this,HomeActivity::class.java))
         })
 
         sellerButton.setOnClickListener(View.OnClickListener {

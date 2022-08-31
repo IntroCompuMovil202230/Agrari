@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeIconVendedor"
+        android:icon="@drawable/home_icon"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/uploadIconVendedor"
+        android:icon="@drawable/upload"
+        android:title="Subir" />
+
+    <item
+        android:id="@+id/MensajesIconVendedor"
+        android:icon="@drawable/chat_icon"
+        android:title="Mensajes" />
+
+    <item
+        android:id="@+id/settingsIconVendedor"
+        android:icon="@drawable/settings_icon"
+        android:title="Ajustes" />
+
+</menu>
