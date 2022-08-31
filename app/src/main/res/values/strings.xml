@@ -25,6 +25,20 @@
     <string name="BirthdayText">Fecha de nacimiento</string>
     <string name="PhoneNumberText">Teléfono</string>
     <string name="FinishButtonText">Finalizar</string>
+
+    <string name="comienza_a_moverte_por_tu_terreno">Comienza a moverte por tu terreno</string>
+    <string name="comenzar">comenzar</string>
+    <string name="calcular">calcular</string>
+    <string name="titulo">Titulo:</string>
+    <string name="ubicaci_n">Ubicación:</string>
+    <string name="metraje">Metraje:</string>
+    <string name="categorias">Categorias:</string>
+    <string name="precio">Precio:</string>
+    <string name="actualizar">actualizar</string>
+    <string name="subir">subir</string>
+    <string name="home">Home</string>
+    <string name="tus_publicaciones">Tus Publicaciones:</string>
+=======
     <string name="home">Home</string>
     <string name="homeDescription">Comienza a buscar tu futuro terreno</string>
     <string name="porUbicacion">Por ubicación</string>
@@ -61,4 +75,5 @@
     <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
     <string name="AdvanceText">Búsqueda avanzada</string>
     <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
+>>>>>>> main
 </resources>
