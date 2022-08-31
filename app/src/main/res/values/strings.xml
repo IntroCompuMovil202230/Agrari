@@ -35,6 +35,10 @@
     <string name="editProfile">Editar perfil</string>
     <string name="terms">Términos y condiciones</string>
     <string name="logout">Cerrar sesión</string>
+    <string name="profile">Perfil</string>
+    <string name="updateProfile">Actualizar</string>
+
+
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->

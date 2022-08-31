@@ -130,7 +130,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                android:backgroundTint="#684C23"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/brown"
                 tools:srcCompat="@drawable/cafe" />
 
             <ImageButton
@@ -142,6 +143,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:srcCompat="@drawable/manzana" />
 
@@ -154,6 +157,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/lemonGreen"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:srcCompat="@drawable/sandia" />
         </LinearLayout>
@@ -164,40 +169,46 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/piña"
-                android:layout_width="wrap_content"
+                android:id="@+id/pina"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/lightYellow"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/pina" />
 
             <ImageButton
                 android:id="@+id/maiz"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/lightLemonGreen"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/maiz" />
 
             <ImageButton
                 android:id="@+id/papa"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/papa" />
         </LinearLayout>
 
         <LinearLayout
@@ -207,39 +218,45 @@
 
             <ImageButton
                 android:id="@+id/papaya"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/darkYellow"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/papaya" />
 
             <ImageButton
                 android:id="@+id/ciruela"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/purple"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/ciruela" />
 
             <ImageButton
                 android:id="@+id/cannabis"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/DarkGreen"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/cannabis" />
         </LinearLayout>
 
     </LinearLayout>
