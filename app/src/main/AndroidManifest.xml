@@ -40,6 +40,18 @@
             android:name=".SearchByLocationActivity"
             android:exported="false" />
         <activity
+            android:name=".MapaMetraje"
+            android:exported="false" />
+        <activity
+            android:name=".Publicacion"
+            android:exported="false" />
+        <activity
+            android:name=".NuevaPublicacion"
+            android:exported="false" />
+        <activity
+            android:name=".HomeVendedor"
+            android:exported="false" />
+        <activity
             android:name=".AboutUserInfoActivity"
             android:exported="false" />
         <activity

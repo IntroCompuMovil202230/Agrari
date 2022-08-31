@@ -24,7 +24,7 @@ class ChooseTypeOfUserActivity : AppCompatActivity() {
         })
 
         sellerButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this,AboutUserInfoActivity::class.java))
+            startActivity(Intent(this,HomeVendedor::class.java))
         })
 
     }
