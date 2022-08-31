@@ -10,13 +10,15 @@
         <entry key="app/src/main/res/font/quicksand_bold.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/layout/activity_about_user_info.xml" value="0.3066864013671875" />
         <entry key="app/src/main/res/layout/activity_choose_type_of_user.xml" value="0.23777173913043478" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.17061611374407584" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27370452880859375" />
         <entry key="app/src/main/res/layout/activity_recover_password.xml" value="0.27104445747707206" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_search_by_location.xml" value="0.2477355072463768" />
         <entry key="app/src/main/res/layout/activity_search_by_metraje.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.196746826171875" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.35625" />
         <entry key="app/src/main/res/menu/nav_bar_menu.xml" value="0.26666666666666666" />
       </map>
     </option>
