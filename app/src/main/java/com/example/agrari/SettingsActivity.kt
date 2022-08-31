@@ -20,6 +20,9 @@ class SettingsActivity : AppCompatActivity() {
         terms = findViewById(R.id.terminos)
         logout = findViewById(R.id.cerrarSesion)
 
+        editProfile.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        })
 
         logout.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
