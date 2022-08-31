@@ -1,0 +1,39 @@
+{
+  "terrenos":[
+    {
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://definicion.de/wp-content/uploads/2010/07/parcela-1.jpg"
+    },
+    {
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://www.grupofarko.com/hs-fs/hubfs/terreno%20de%20inversion%20premium.jpg?width=1200&name=terreno%20de%20inversion%20premium.jpg"
+    },
+    {
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://www.icasas.mx/noticias/wp-content/uploads/2018/01/Vender-terreno.jpeg"
+    },
+    {
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://www.losportalesdepas.com.pe/blog/wp-content/uploads/2020/02/ten-la-tierra-lista-los-portales-depas.jpg"
+    },{
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://imgbr.imovelwebcdn.com/avisos/2/29/24/35/99/27/720x532/749417542.jpg"
+    },
+    {
+      "titulo":"Se vende terreno lindo", 
+      "ubicacion":"Nuevo Colón, Boyacá",
+      "precio": 140000000,
+      "imagen": "https://img3.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/75/ba/5f/812518215.jpg"
+    }
+  ]
+}

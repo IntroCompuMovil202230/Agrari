@@ -6,12 +6,15 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 
 class HomeActivity : AppCompatActivity() {
 
     lateinit var locationButton: Button
     lateinit var metrajeButton: Button
     lateinit var advanceSearchButton: Button
+    lateinit var settingsButton: BottomNavigationItemView
+    lateinit var sandiaButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +22,9 @@ class HomeActivity : AppCompatActivity() {
         locationButton= findViewById(R.id.porUbicacion)
         metrajeButton= findViewById(R.id.porMetraje)
         advanceSearchButton= findViewById(R.id.busqAvanzada)
+        settingsButton= findViewById(R.id.settingsIcon)
+        sandiaButton= findViewById(R.id.sandia)
+
 
         locationButton.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, SearchByLocationActivity::class.java))
@@ -29,5 +35,14 @@ class HomeActivity : AppCompatActivity() {
         advanceSearchButton.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, AdvanceSearchActivity::class.java))
         })
+
+        settingsButton.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        })
+
+        sandiaButton.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, CategoryResultActivity::class.java))
+        })
+
     }
 }

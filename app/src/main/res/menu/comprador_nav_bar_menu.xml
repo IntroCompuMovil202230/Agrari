@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/algorithm"
+        android:id="@+id/homeIcon"
         android:icon="@drawable/home_icon"
         android:title="Inicio" />
 
     <item
-        android:id="@+id/course"
+        android:id="@+id/MensajesIcon"
         android:icon="@drawable/chat_icon"
         android:title="Mensajes" />
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/settingsIcon"
         android:icon="@drawable/settings_icon"
         android:title="Ajustes" />
 

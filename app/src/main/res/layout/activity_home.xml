@@ -131,6 +131,7 @@
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:backgroundTint="#684C23"
+                tools:ignore="SpeakableTextPresentCheck"
                 tools:srcCompat="@drawable/cafe" />
 
             <ImageButton
@@ -245,6 +246,7 @@
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navegationBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FAFAFA"
