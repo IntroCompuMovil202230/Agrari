@@ -6,23 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Publicacion">
 
-    <HorizontalScrollView
-        android:id="@+id/imageList"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </HorizontalScrollView>
-
     <TextView
         android:id="@+id/tituloTitulo"
         android:layout_width="wrap_content"
@@ -60,7 +43,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:background="@color/LightGreen"
@@ -68,8 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageList"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/titulo">
 
         <TextView
             android:id="@+id/ubicacionTitulo"
