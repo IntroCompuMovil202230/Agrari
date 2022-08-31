@@ -152,25 +152,26 @@
                 app:srcCompat="@drawable/orange" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/ciruela" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/manzana" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/papaya" />
+
         </LinearLayout>
 
         <EditText

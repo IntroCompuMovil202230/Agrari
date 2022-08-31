@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_about_user_info.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_advance_search.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_category_result.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_choose_type_of_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_home_vendedor.xml" value="0.36666666666666664" />
@@ -13,9 +15,12 @@
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_nueva_publicacion.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_publicacion.xml" value="0.33" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_recover_password.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_search_by_location.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_search_by_metraje.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_settings.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/menu/comprador_nav_bar_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/marco/OneDrive/Documents/GitHub/Agrari/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/custom_edit_text_cursor.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.101" />
@@ -29,15 +34,9 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27370452880859375" />
         <entry key="app/src/main/res/layout/activity_recover_password.xml" value="0.27104445747707206" />
-
         <entry key="app/src/main/res/layout/activity_search_by_location.xml" value="0.2477355072463768" />
         <entry key="app/src/main/res/layout/activity_search_by_metraje.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.35625" />
-=======
-        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.35625" />
-        <entry key="app/src/main/res/layout/activity_search_by_location.xml" value="0.2477355072463768" />
-        <entry key="app/src/main/res/layout/activity_search_by_metraje.xml" value="0.25" />
->>>>>>> main
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.196746826171875" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.35625" />
         <entry key="app/src/main/res/menu/nav_bar_menu.xml" value="0.26666666666666666" />

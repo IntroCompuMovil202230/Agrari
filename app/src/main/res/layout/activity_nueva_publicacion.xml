@@ -152,25 +152,19 @@
                 app:srcCompat="@drawable/orange" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/cafe" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
+                app:srcCompat="@drawable/cannabis" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/orange" />
         </LinearLayout>
 
         <EditText
