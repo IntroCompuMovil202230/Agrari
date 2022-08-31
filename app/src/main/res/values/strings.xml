@@ -51,4 +51,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="ChooseLocationText">Elige una ubicación</string>
+    <string name="SearchButtonText">Buscar</string>
+    <string name="ResultsText">Resultados</string>
+    <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
 </resources>

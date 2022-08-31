@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_metranjes_range">
+        <item>20000</item>
+        <item>40000</item>
+    </array>
+</resources>
