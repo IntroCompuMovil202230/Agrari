@@ -59,4 +59,6 @@
     <string name="SearchButtonText">Buscar</string>
     <string name="ResultsText">Resultados</string>
     <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
+    <string name="AdvanceText">Búsqueda avanzada</string>
+    <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
 </resources>
