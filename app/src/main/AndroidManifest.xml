@@ -14,7 +14,13 @@
         android:theme="@style/Theme.Agrari"
         tools:targetApi="31">
         <activity
+            android:name=".SearchByMetrajeActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchByLocationActivity"
             android:exported="false" />
         <activity
             android:name=".AboutUserInfoActivity"

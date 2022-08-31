@@ -31,4 +31,8 @@
     <string name="porMetraje">Por metraje</string>
     <string name="busqAvanzada">Búsqueda avanzada</string>
     <string name="categoriesText">Categorías</string>
+    <string name="ChooseLocationText">Elige una ubicación</string>
+    <string name="SearchButtonText">Buscar</string>
+    <string name="ResultsText">Resultados</string>
+    <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
 </resources>
