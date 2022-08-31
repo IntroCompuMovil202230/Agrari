@@ -25,6 +25,7 @@
     <string name="BirthdayText">Fecha de nacimiento</string>
     <string name="PhoneNumberText">Teléfono</string>
     <string name="FinishButtonText">Finalizar</string>
+
     <string name="comienza_a_moverte_por_tu_terreno">Comienza a moverte por tu terreno</string>
     <string name="comenzar">comenzar</string>
     <string name="calcular">calcular</string>
@@ -37,4 +38,38 @@
     <string name="subir">subir</string>
     <string name="home">Home</string>
     <string name="tus_publicaciones">Tus Publicaciones:</string>
+=======
+    <string name="home">Home</string>
+    <string name="homeDescription">Comienza a buscar tu futuro terreno</string>
+    <string name="porUbicacion">Por ubicación</string>
+    <string name="porMetraje">Por metraje</string>
+    <string name="busqAvanzada">Búsqueda avanzada</string>
+    <string name="categoriesText">Categorías</string>
+    <string name="settingsText">Ajustes</string>
+    <string name="editProfile">Editar perfil</string>
+    <string name="terms">Términos y condiciones</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="ChooseLocationText">Elige una ubicación</string>
+    <string name="SearchButtonText">Buscar</string>
+    <string name="ResultsText">Resultados</string>
+    <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
+    <string name="AdvanceText">Búsqueda avanzada</string>
+    <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
+>>>>>>> main
 </resources>

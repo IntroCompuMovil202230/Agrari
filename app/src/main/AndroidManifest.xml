@@ -13,6 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agrari"
         tools:targetApi="31">
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".CategoryResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdvanceSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchByMetrajeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchByLocationActivity"
+            android:exported="false" />
         <activity
             android:name=".MapaMetraje"
             android:exported="false" />

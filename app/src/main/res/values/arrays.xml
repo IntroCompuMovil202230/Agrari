@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="initial_metranjes_range">
+        <item>20000</item>
+        <item>40000</item>
+    </array>
+    <string-array name="departamentos">
+        <item>Cundinamarca</item>
+        <item>Antioquia</item>
+        <item>Bolivar</item>
+        <item>Córdoba</item>
+        <item>Cesar</item>
+    </string-array>
+    <string-array name="municipios">
+        <item>Bogotá</item>
+        <item>Medellín</item>
+        <item>Cali</item>
+        <item>Cúcuta</item>
+        <item>Pasto</item>
+    </string-array>
+
+    <string-array name="categorias">
+        <item>Manzana</item>
+        <item>Piña</item>
+        <item>Papaya</item>
+        <item>Sandia</item>
+        <item>Cannabis</item>
+        <item>Papa</item>
+        <item>Ciruela</item>
+    </string-array>
+
+</resources>
