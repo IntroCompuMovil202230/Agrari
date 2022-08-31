@@ -12,13 +12,17 @@ class HomeVendedor : AppCompatActivity() {
     lateinit var  pub2: ImageButton
     lateinit var  pub3: ImageButton
     lateinit var  pub4: ImageButton
-
+    lateinit var  subir: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
 
         pub1 =  findViewById(R.id.publicacion1)
         pub2 =  findViewById(R.id.publicacion2)
         pub3 =  findViewById(R.id.publicacion3)
         pub4 =  findViewById(R.id.publicacion4)
+        subir = findViewById(R.id.subirb)
+        subir.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, NuevaPublicacion::class.java))
+        })
         pub1.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, Publicacion::class.java))
         })
