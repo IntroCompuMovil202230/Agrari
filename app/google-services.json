@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1063379268003",
+    "project_id": "agrari-260f1",
+    "storage_bucket": "agrari-260f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063379268003:android:5ab2f0bc948b7bee1f2a16",
+        "android_client_info": {
+          "package_name": "com.example.agrari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063379268003-b6mdb35q588f584v3ibrgmiv72gl7ucr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCISHJZcohA-8YQDtRXG5gStqGkA821BT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063379268003-b6mdb35q588f584v3ibrgmiv72gl7ucr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

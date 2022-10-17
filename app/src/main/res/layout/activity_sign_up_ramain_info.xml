@@ -204,7 +204,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/DarkGreen"
-        android:text="@string/updateProfile"
+        android:text="@string/ContinueButtonText"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
