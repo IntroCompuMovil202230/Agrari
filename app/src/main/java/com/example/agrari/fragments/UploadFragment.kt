@@ -1,50 +1,62 @@
-package com.example.agrari
+package com.example.agrari.fragments
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import com.example.agrari.databinding.ActivitySignUpRamainInfoBinding
+import androidx.core.content.PermissionChecker
+import androidx.core.content.PermissionChecker.checkSelfPermission
+import com.example.agrari.MapaMetraje
+import com.example.agrari.ProfileActivity
+import com.example.agrari.R
+import com.example.agrari.databinding.FragmentChatBinding
+import com.example.agrari.databinding.FragmentUploadBinding
 import java.io.File
 
-class SignUpRamainInfoActivity : AppCompatActivity() {
 
-
+class UploadFragment : Fragment() {
 
     companion object {
-        private val CAMERA_CODE = 1004;
-        private val GALERY_CODE = 1005;
+        private val CAMERA_CODE = 1007;
+        private val GALERY_CODE = 1006;
     }
 
     lateinit var uriCamera: Uri
-    lateinit var binding: ActivitySignUpRamainInfoBinding
+    private var binding: FragmentUploadBinding?=null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding= ActivitySignUpRamainInfoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding= FragmentUploadBinding.inflate(layoutInflater,container,false)
 
-        binding.cameraButtonSignUp.setOnClickListener(View.OnClickListener {
+        binding!!.getMentrajeButton.setOnClickListener(View.OnClickListener {
+            activity?.startActivity(Intent(activity, MapaMetraje::class.java))
+        })
+
+
+        binding!!.uploadCameraButton.setOnClickListener(View.OnClickListener {
             this.openCamera()
             Log.i("GALERY-CONTROLLER", "ACCESING GALLERY")
 
         })
-        binding.galleryButtonSignUp.setOnClickListener(View.OnClickListener {
+        binding!!.uploadGaleryButton.setOnClickListener(View.OnClickListener {
             Log.i("CAMERA-CONTROLLER", "ACCESING CAMERA")
             this.openGallery()
         })
 
 
-        binding.remainInfoButton.setOnClickListener {
-            startActivity(Intent(this,ChooseTypeOfUserActivity::class.java))
-        }
+        return binding!!.root
     }
+
 
 
     override fun onRequestPermissionsResult(
@@ -59,10 +71,10 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
                     this.selectImageIntent.launch("image/*")
                 }
             }
-            CAMERA_CODE->{
+            CAMERA_CODE ->{
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    var file : File = File(filesDir, "picFromCamera");
-                    uriCamera = FileProvider.getUriForFile(this, applicationContext.packageName + ".fileprovider", file);
+                    var file : File = File(requireActivity().filesDir, "picFromCamera");
+                    uriCamera = FileProvider.getUriForFile(requireActivity(), requireActivity().applicationContext.packageName + ".fileprovider", file);
                     this.selectFromCameraIntent.launch(uriCamera)
                 }
             }
@@ -76,14 +88,14 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
     { uri ->
         if(uri != null){
             Log.i("GALLERY URI", "The URI IS: $uri")
-            binding.profileSignUpPicture.setImageURI(uri)
+            binding!!.uploadImage.setImageURI(uri)
         }
     }
 
     private fun openGallery(){
         val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
         when {
-            checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED -> {
+            requireActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED -> {
                 this.selectImageIntent.launch("image/*")
             }
             /*shouldShowRequestPermissionRationale(READ_EXTERNAL_STORAGE) -> {
@@ -104,16 +116,16 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
                 bitmap ->
             if (bitmap){
                 Log.i("CAMERA CHOOSER","DATA: ${this.uriCamera}")
-                binding.profileSignUpPicture.setImageURI(uriCamera)
+                binding!!.uploadImage.setImageURI(uriCamera)
             }
         }
 
     private fun openCamera(){
         val permissions = arrayOf(Manifest.permission.CAMERA)
         when {
-            checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
-                var file : File = File(filesDir, "picFromCamera");
-                uriCamera = FileProvider.getUriForFile(this, applicationContext.packageName + ".fileprovider", file);
+            requireActivity().checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
+                var file : File = File(requireActivity().filesDir, "picFromCamera");
+                uriCamera = FileProvider.getUriForFile(requireActivity(), requireActivity().applicationContext.packageName + ".fileprovider", file);
                 this.selectFromCameraIntent.launch(uriCamera)
             }
             /*shouldShowRequestPermissionRationale(CAMERA) -> {
@@ -127,8 +139,5 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
     }
 
     ///////--------------////////////
-
-
-
 
 }

@@ -215,7 +215,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titulo">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/uploadImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

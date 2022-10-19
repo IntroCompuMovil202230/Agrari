@@ -26,6 +26,10 @@
     <string name="PhoneNumberText">Teléfono</string>
     <string name="FinishButtonText">Finalizar</string>
 
+    <string name="chatTitle">Chat</string>
+
+    <string name="switchTitle">¿Vendedor?  </string>
+
     <string name="comienza_a_moverte_por_tu_terreno">Comienza a moverte por tu terreno</string>
     <string name="comenzar">comenzar</string>
     <string name="calcular">calcular</string>
@@ -74,5 +78,7 @@
     <string name="ChooseMentrajeRangeText">Elige un rango del metraje</string>
     <string name="AdvanceText">Búsqueda avanzada</string>
     <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -10,8 +10,10 @@ class CategoryResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_result)
+
+
         var terrenos= terrenosController.getTerrenos(this.assets.open(("terrenos.json")))
-        var terrenosGrid: GridView = findViewById(R.id.terrenosGridxCategorySearch)
+        var terrenosGrid: GridView = findViewById(R.id.terrenosGridxHomeVendedor)
         terrenosGrid.adapter= PublicacionAdapter(this,terrenos)
         terrenosGrid.setOnItemClickListener { parent, view, position, id ->
             intent= Intent(this,VerPublicacionActivity::class.java)

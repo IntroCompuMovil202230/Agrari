@@ -1,41 +1,43 @@
 package com.example.agrari
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import androidx.fragment.app.Fragment
+import com.example.agrari.databinding.ActivityHomeVendedorBinding
+import com.example.agrari.fragments.ChatFragment
+import com.example.agrari.fragments.HomeVendedorFragment
+import com.example.agrari.fragments.SettingsFragment
+import com.example.agrari.fragments.UploadFragment
 
 class HomeVendedor : AppCompatActivity() {
-    lateinit var  pub1: ImageButton
-    lateinit var uploadButton: BottomNavigationItemView
-    lateinit var settingsButton: BottomNavigationItemView
-    lateinit var chatButton: BottomNavigationItemView
+
+    lateinit var  binding: ActivityHomeVendedorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_vendedor)
 
-        pub1 =  findViewById(R.id.publicacion1)
-        uploadButton= findViewById(R.id.uploadIconVendedor)
-        settingsButton= findViewById(R.id.settingsIconVendedor)
-        chatButton= findViewById(R.id.MensajesIconVendedor)
+        binding= ActivityHomeVendedorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        replaceFragment(HomeVendedorFragment())
 
-        uploadButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, NuevaPublicacion::class.java))
-        })
-
-        settingsButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        })
-
-
-        chatButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, MessagesActivity::class.java))
-        })
-
-
+        binding.navegationBarVendedor.setOnItemReselectedListener {
+            when(it.itemId){
+                R.id.homeIconVendedor -> replaceFragment(HomeVendedorFragment())
+                R.id.uploadIconVendedor -> replaceFragment(UploadFragment())
+                R.id.MensajesIconVendedor -> replaceFragment(ChatFragment())
+                R.id.settingsIconVendedor -> replaceFragment(SettingsFragment())
+            }
+        }
     }
+
+
+    private  fun replaceFragment(fragment: Fragment){
+        val fragmentManager= supportFragmentManager
+        val fragmentTransaction= fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.layoutNavigatorVendedor,fragment)
+        fragmentTransaction.commit()
+    }
+
+
+
 }
