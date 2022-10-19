@@ -80,5 +80,7 @@
     <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_get_area_map">GetAreaMapActivity</string>
+    <string name="title_activity_distance_to_terreno">DistanceToTerrenoActivity</string>
 
 </resources>

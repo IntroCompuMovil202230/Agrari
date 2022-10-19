@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
+import com.example.agrari.GetAreaMapActivity
 import com.example.agrari.MapaMetraje
 import com.example.agrari.ProfileActivity
 import com.example.agrari.R
@@ -39,7 +40,7 @@ class UploadFragment : Fragment() {
         binding= FragmentUploadBinding.inflate(layoutInflater,container,false)
 
         binding!!.getMentrajeButton.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, MapaMetraje::class.java))
+            activity?.startActivity(Intent(activity, GetAreaMapActivity::class.java))
         })
 
 
