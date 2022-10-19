@@ -3,12 +3,19 @@ package com.example.agrari
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.content.FileProvider
 import com.example.agrari.databinding.ActivitySignUpRamainInfoBinding
 import java.io.File
@@ -24,11 +31,30 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
 
     lateinit var uriCamera: Uri
     lateinit var binding: ActivitySignUpRamainInfoBinding
+    var sensorManager: SensorManager? = null
+    var lightSensor: Sensor? = null
+    var lightSensorListener: SensorEventListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivitySignUpRamainInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        lightSensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
+
+
+        lightSensorListener = object : SensorEventListener {
+            override fun onSensorChanged(sensorEvent: SensorEvent) {
+                val value = sensorEvent.values[0]
+                if (value < 10000) {
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+                }
+            }
+
+            override fun onAccuracyChanged(sensor: Sensor, i: Int) {}
+        }
 
         binding.cameraButtonSignUp.setOnClickListener(View.OnClickListener {
             this.openCamera()
@@ -44,6 +70,19 @@ class SignUpRamainInfoActivity : AppCompatActivity() {
         binding.remainInfoButton.setOnClickListener {
             startActivity(Intent(this,ChooseTypeOfUserActivity::class.java))
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        sensorManager!!.registerListener(
+            lightSensorListener,
+            lightSensor,
+            SensorManager.SENSOR_DELAY_NORMAL
+        )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager!!.unregisterListener(lightSensorListener)
     }
 
 
