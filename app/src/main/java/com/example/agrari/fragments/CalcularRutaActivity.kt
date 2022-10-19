@@ -46,15 +46,13 @@ class CalcularRutaActivity : AppCompatActivity(), OnMapReadyCallback {
     private var locationRequest: LocationRequest? = null
     private var locationCallback: LocationCallback? = null
 
-    //sensors
+    //sensores
     var sensorManager: SensorManager? = null
     var lightSensor: Sensor? = null
     var lightSensorListener: SensorEventListener? = null
     val REQUTEST_CHECK_SETTINGS = 3
     var is_gps_enabled = false
 
-
-    //map Search
     var mGeocoder: Geocoder? = null
 
 
@@ -70,7 +68,6 @@ class CalcularRutaActivity : AppCompatActivity(), OnMapReadyCallback {
         lightSensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
         lightSensorListener = lightSensorCode()
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
