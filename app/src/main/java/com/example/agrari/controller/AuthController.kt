@@ -17,14 +17,14 @@ class AuthController {
     }
 
     fun createUserWithEmailPassword(email:String, password:String): Task<AuthResult> {
-        if(!CredentialValidator.isEmail(email) || email.isEmpty() || password.isEmpty()){
+        if(email.isEmpty() ||  !CredentialValidator.isEmail(email)  || password.isEmpty()){
             throw Exception("Correo o contraseña inválida")
         }
         return mAuth.createUserWithEmailAndPassword(email,password)
     }
 
     fun signInWithEmailPassword(email:String, password:String): Task<AuthResult> {
-        if(!CredentialValidator.isEmail(email) || email.isEmpty() || password.isEmpty()){
+        if(email.isEmpty() || !CredentialValidator.isEmail(email)  || password.isEmpty()){
             throw Exception("Correo o contraseña inválida")
         }
         return mAuth.signInWithEmailAndPassword(email,password)
