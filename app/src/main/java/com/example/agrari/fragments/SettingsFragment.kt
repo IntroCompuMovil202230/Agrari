@@ -8,19 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.agrari.MainActivity
 import com.example.agrari.ProfileActivity
-import com.example.agrari.controller.AuthController
+import com.example.agrari.services.AuthService
 import com.example.agrari.databinding.FragmentSettingsBinding
 
 
 class SettingsFragment : Fragment() {
     private var binding: FragmentSettingsBinding?=null
-    lateinit var authController: AuthController
+    lateinit var authController: AuthService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        authController=AuthController()
+        authController= AuthService()
         binding= FragmentSettingsBinding.inflate(layoutInflater,container,false)
         binding!!.editarPerfil.setOnClickListener(View.OnClickListener {
             activity?.startActivity(Intent(activity, ProfileActivity::class.java))

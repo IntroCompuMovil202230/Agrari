@@ -59,7 +59,7 @@
             android:drawableLeft="@android:drawable/ic_menu_mylocation"
             android:text="@string/porUbicacion"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/porMetraje"
@@ -72,7 +72,7 @@
             android:drawableLeft="@android:drawable/ic_menu_manage"
             android:text="@string/porMetraje"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <Button
@@ -86,7 +86,7 @@
         android:drawableLeft="@android:drawable/ic_menu_search"
         android:text="@string/busqAvanzada"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

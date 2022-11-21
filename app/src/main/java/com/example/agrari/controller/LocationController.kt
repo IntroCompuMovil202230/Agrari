@@ -1,22 +1,76 @@
 package com.example.mapstest
 
 import android.Manifest
-import android.R.attr.elevation
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
-import android.os.Looper
 import android.util.Log
 import androidx.activity.result.IntentSenderRequest
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.gms.common.api.*
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.Task
 
 
-class LocationController(currentActivity: Activity,locationManager:LocationManager) {
+class LocationController(currentActivity: Activity,  mFusedLocationClient:FusedLocationProviderClient) {
+
+    var currentActivity: Activity
+
+    var mFusedLocationClient: FusedLocationProviderClient
+    var mLocationRequest: LocationRequest
+    lateinit var locationCallback: LocationCallback
+
+
+
+    init {
+        this.currentActivity= currentActivity
+        this.mFusedLocationClient=mFusedLocationClient
+        this.mLocationRequest=createLocationRequest()
+    }
+
+
+    fun checkLocationStatus():Task<LocationSettingsResponse>{
+        val locationRequest: LocationRequest.Builder = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,1000)
+        val builder = LocationSettingsRequest.Builder().addLocationRequest(locationRequest.build())
+        val client = LocationServices.getSettingsClient(this.currentActivity)
+        val task = client.checkLocationSettings(builder.build())
+        return task
+    }
+
+
+    private fun createLocationRequest(): LocationRequest {
+        return LocationRequest.Builder(
+            Priority.PRIORITY_HIGH_ACCURACY,
+            1000,
+        ).build()
+    }
+
+
+    @SuppressLint("MissingPermission", "SetTextI18n")
+    fun startLocationUpdates() {
+        if (ContextCompat.checkSelfPermission(this.currentActivity, Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest, this.locationCallback, null)
+        }
+    }
+
+
+    fun stopLocationUpdates() {
+        this.mFusedLocationClient.removeLocationUpdates(this.locationCallback);
+    }
+
+}
+
+
+
+
+/*
+
+class LocationController(currentActivity: Activity, locationManager: FusedLocationProviderClient) {
 
     var mFusedLocationClient: FusedLocationProviderClient
     var currentActivity: Activity
@@ -53,14 +107,17 @@ class LocationController(currentActivity: Activity,locationManager:LocationManag
         }
     }
 
+
+
     @SuppressLint("MissingPermission", "SetTextI18n")
-    fun startCurrentLocationUpdates(locationCallback:LocationCallback){
-        this.locationCallback=locationCallback
-        this.mFusedLocationClient.requestLocationUpdates(
-            this.mLocationRequest,
-            this.locationCallback,
-            Looper.getMainLooper())
+    fun startLocationUpdates() {
+        if (ContextCompat.checkSelfPermission(this.currentActivity, Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest, this.locationCallback, null)
+        }
     }
+
 
     fun stopLocationUpdates() {
         this.mFusedLocationClient.removeLocationUpdates(this.locationCallback);
@@ -68,3 +125,4 @@ class LocationController(currentActivity: Activity,locationManager:LocationManag
 
 
 }
+*/

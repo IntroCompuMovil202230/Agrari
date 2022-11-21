@@ -7,19 +7,22 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.agrari.Model.AgrariPost
+import com.example.taller3_compu_movil.controller.ImageEncodingController
 import com.squareup.picasso.Picasso
 
-class PublicacionAdapter (private  val mContext: Context, private val publicacionList: List<Publicacion>):
-    ArrayAdapter<Publicacion>(mContext,0,publicacionList) {
+class PublicacionAdapter (private  val mContext: Context, private val publicacionList: List<AgrariPost>):
+    ArrayAdapter<AgrariPost>(mContext,0,publicacionList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val ly= LayoutInflater.from(mContext).inflate(R.layout.publicacion_item,parent,false)
-        var publicacion= publicacionList[position]
+        var post= publicacionList[position]
+        var imageEncodingController= ImageEncodingController()
         var imagen: ImageView=ly.findViewById<ImageView>(R.id.publicacionImagen)
-        Picasso.get().load(publicacion.imagen).into(imagen)
-        ly.findViewById<TextView>(R.id.publicacionTitulo).text=publicacion.titulo
-        ly.findViewById<TextView>(R.id.publicacionUbicacion).text=publicacion.ubicacion
-        ly.findViewById<TextView>(R.id.publicacionPrecio).text=publicacion.precio.toString()
+        imagen.setImageBitmap(imageEncodingController.decodeImage(post.image))
+        ly.findViewById<TextView>(R.id.publicacionTitulo).text=post.title
+        ly.findViewById<TextView>(R.id.publicacionUbicacion).text=post.departamento
+        ly.findViewById<TextView>(R.id.publicacionPrecio).text=post.price.toString()
         return ly
     }
 }

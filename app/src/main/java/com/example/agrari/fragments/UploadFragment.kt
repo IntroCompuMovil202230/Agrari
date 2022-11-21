@@ -4,22 +4,23 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
-import androidx.core.content.PermissionChecker
-import androidx.core.content.PermissionChecker.checkSelfPermission
-import com.example.agrari.GetAreaMapActivity
-import com.example.agrari.MapaMetraje
-import com.example.agrari.ProfileActivity
-import com.example.agrari.R
-import com.example.agrari.databinding.FragmentChatBinding
+import androidx.fragment.app.Fragment
+import com.example.agrari.ChoosePostLocationActivity
+import com.example.agrari.Model.AgrariPost
 import com.example.agrari.databinding.FragmentUploadBinding
+import com.example.agrari.services.AuthService
+import com.example.taller3_compu_movil.controller.ImageEncodingController
 import java.io.File
 
 
@@ -32,16 +33,20 @@ class UploadFragment : Fragment() {
 
     lateinit var uriCamera: Uri
     private var binding: FragmentUploadBinding?=null
+    var pictureUri: Uri?=null
+    lateinit var authService: AuthService
+    var imageEncodingController: ImageEncodingController = ImageEncodingController()
+    lateinit var currentPost: AgrariPost
+    lateinit var currentCategory: String
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding= FragmentUploadBinding.inflate(layoutInflater,container,false)
 
-        binding!!.getMentrajeButton.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, GetAreaMapActivity::class.java))
-        })
+        authService=AuthService()
 
 
         binding!!.uploadCameraButton.setOnClickListener(View.OnClickListener {
@@ -54,10 +59,47 @@ class UploadFragment : Fragment() {
             this.openGallery()
         })
 
+        binding!!.Subir.setOnClickListener {
+            try {
+                Log.i("POST-DATA", "" +
+                        """ 
+                        Seller_id: ${authService.getCurrentUser()!!.uid},
+                        Price: ${binding!!.precioInput.text}
+                        Title: ${binding!!.titleInput.text},
+                           
+                        """
+                )
+                this.currentPost=AgrariPost(
+                    authService.getCurrentUser()!!.uid,
+                    binding!!.titleInput.text.toString(),
+                    binding!!.precioInput.text.toString().toInt(),
+                    this.imageEncodingController.encodeImage(it.context.contentResolver, this.pictureUri),
+                    this.currentCategory
+                )
+
+                var intent = Intent(it.context,ChoosePostLocationActivity::class.java)
+                intent.putExtra("newPost",this.currentPost)
+                startActivity(intent)
+
+            }catch (e:Exception){
+                Toast.makeText(it.context,e.toString().substring(21), Toast.LENGTH_LONG).show()
+                Log.i("ERROR", "$e")
+            }
+        }
+
+        binding!!.categoryUploadSpinnerChooser.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
+                    val item: Any = parent.getItemAtPosition(pos).toString()
+                    Log.i("SPINNER-CHOOSER", "THE ITEM VALUE IS: $item")
+                    currentCategory=item.toString()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
 
         return binding!!.root
     }
-
 
 
     override fun onRequestPermissionsResult(
@@ -89,6 +131,7 @@ class UploadFragment : Fragment() {
     { uri ->
         if(uri != null){
             Log.i("GALLERY URI", "The URI IS: $uri")
+            this.pictureUri=uri
             binding!!.uploadImage.setImageURI(uri)
         }
     }
@@ -117,6 +160,7 @@ class UploadFragment : Fragment() {
                 bitmap ->
             if (bitmap){
                 Log.i("CAMERA CHOOSER","DATA: ${this.uriCamera}")
+                this.pictureUri=uriCamera
                 binding!!.uploadImage.setImageURI(uriCamera)
             }
         }
