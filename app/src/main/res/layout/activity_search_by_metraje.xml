@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     android:paddingTop="20dp"
     tools:context=".SearchByMetrajeActivity">
 
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@color/white"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="@color/white"
         android:stepSize="1000.0"
         android:valueFrom="0.0"
         android:valueTo="100000.0"

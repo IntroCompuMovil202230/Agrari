@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
-    android:background="#FFFFFF"
     android:paddingTop="20dp"
     tools:context=".VerPublicacionActivity">
 
@@ -60,5 +59,20 @@
             android:text="TextView"
             android:textColor="@color/LightGreen"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/enviarMensajeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/enviarMensaje" />
+
+        <Button
+            android:id="@+id/verDistanciaMapaButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/orange"
+            android:text="Ver en Mapa" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,11 @@
-package com.example.agrari.controller
+package com.example.agrari.services
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class AuthController {
+class AuthService {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun getCurrentUser():FirebaseUser?{
@@ -17,17 +17,19 @@ class AuthController {
     }
 
     fun createUserWithEmailPassword(email:String, password:String): Task<AuthResult> {
-        if(email.isEmpty() ||  !CredentialValidator.isEmail(email)  || password.isEmpty()){
+        if(email.isEmpty() ||  !CredentialValidator.isEmail(email) || password.isEmpty()){
             throw Exception("Correo o contraseña inválida")
+        }else{
+            return mAuth.createUserWithEmailAndPassword(email,password)
         }
-        return mAuth.createUserWithEmailAndPassword(email,password)
     }
 
     fun signInWithEmailPassword(email:String, password:String): Task<AuthResult> {
-        if(email.isEmpty() || !CredentialValidator.isEmail(email)  || password.isEmpty()){
+        if(email.isEmpty() || !CredentialValidator.isEmail(email) || password.isEmpty()){
             throw Exception("Correo o contraseña inválida")
+        }else{
+            return mAuth.signInWithEmailAndPassword(email,password)
         }
-        return mAuth.signInWithEmailAndPassword(email,password)
     }
 
 }

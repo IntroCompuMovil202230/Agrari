@@ -34,6 +34,8 @@
     <string name="comenzar">comenzar</string>
     <string name="calcular">calcular</string>
     <string name="titulo">Titulo:</string>
+    <string name="humedad">Humedad:</string>
+    <string name="Temperatura">Temperatura:</string>
     <string name="ubicaci_n">Ubicación:</string>
     <string name="metraje">Metraje:</string>
     <string name="categorias">Categorias:</string>
@@ -41,6 +43,13 @@
     <string name="actualizar">actualizar</string>
     <string name="subir">subir</string>
     <string name="tus_publicaciones">Tus Publicaciones:</string>
+
+    <string name="enviarMensaje">Enviar Mensaje</string>
+
+    <string name="ElegirUbicacion">Seleccionar ubicación</string>
+
+    <string name="finalizarSubidaPost">Finalizar y subir post</string>
+
 
     <string name="home">Home</string>
     <string name="homeDescription">Comienza a buscar tu futuro terreno</string>
@@ -80,6 +89,8 @@
     <string name="CategoryResultText">Resultados de terrenos para la categoría seleccionada</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_calcular_ruta">CalcularRutaActivity</string>
+    <string name="title_activity_get_area_map">GetAreaMapActivity</string>
+    <string name="title_activity_distance_to_terreno">DistanceToTerrenoActivity</string>
+    <string name="title_activity_choose_post_location">ChoosePostLocationActivity</string>
 
 </resources>
