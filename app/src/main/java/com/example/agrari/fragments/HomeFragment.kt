@@ -23,22 +23,31 @@ class HomeFragment : Fragment() {
 
 
         binding!!.porUbicacion.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, SearchByLocationActivity::class.java))
+            activity?.startActivity(Intent(it.context, SearchByLocationActivity::class.java))
         })
 
         binding!!.porMetraje.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, SearchByMetrajeActivity::class.java))
+            activity?.startActivity(Intent(it.context, SearchByMetrajeActivity::class.java))
         })
 
 
         binding!!.busqAvanzada.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, AdvanceSearchActivity::class.java))
+            activity?.startActivity(Intent(it.context, AdvanceSearchActivity::class.java))
         })
 
 
         binding!!.sandia.setOnClickListener(View.OnClickListener {
-            activity?.startActivity(Intent(activity, CategoryResultActivity::class.java))
+            var intent=Intent(it.context, CategoryResultActivity::class.java)
+            intent.putExtra("category","Sandia")
+            activity?.startActivity(intent)
         })
+
+        binding!!.manzana.setOnClickListener(View.OnClickListener {
+            var intent=Intent(it.context, CategoryResultActivity::class.java)
+            intent.putExtra("category","Manzana")
+            activity?.startActivity(intent)
+        })
+
 
         return binding!!.root
     }

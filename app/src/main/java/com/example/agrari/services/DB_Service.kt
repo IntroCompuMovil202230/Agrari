@@ -1,8 +1,10 @@
 package com.example.agrari.services
 
+import com.example.agrari.Model.AgrariCategory
 import com.example.agrari.Model.AgrariPost
 import com.example.agrari.Model.AgrariUser
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -39,13 +41,36 @@ class DB_Service {
     fun addNewPost(newPost:AgrariPost){
          var reference:DocumentReference= db.collection(this.postsCollection).document()
         newPost.uid=reference.id
-        db.collection(this.postsCollection).document(newPost.uid).set(newPost.toJson())
+        var reference2:DocumentReference = db.collection(this.postsCollection).document(newPost.uid)
+        reference2.set(newPost.toJson())
     }
 
 
 
     fun getAllPosts(): Query {
         return db.collection(this.postsCollection)
+    }
+
+
+    fun getPostByMetrajeRange(lowerValue:Double, upperValue:Double): Query {
+        return db.collection(this.postsCollection).whereGreaterThanOrEqualTo("area",lowerValue).whereLessThanOrEqualTo("area",upperValue)
+    }
+
+
+    fun getPostByCategory(category: String): Query {
+        return db.collection(this.postsCollection).whereEqualTo("category",category)
+    }
+
+
+    fun getPostByDepartamento(departamento: String): Query {
+        return db.collection(this.postsCollection).whereEqualTo("departamento",departamento)
+    }
+
+
+
+
+    fun getPostByDepartamentoCategoryRange(departamento: String,category: String,lowerValue:Double, upperValue:Double): Query {
+        return db.collection(this.postsCollection).whereEqualTo("departamento",departamento).whereEqualTo("category",category).whereGreaterThanOrEqualTo("area",lowerValue).whereLessThanOrEqualTo("area",upperValue)
     }
 
     fun sellerPosts(sellerUid:String):Query{

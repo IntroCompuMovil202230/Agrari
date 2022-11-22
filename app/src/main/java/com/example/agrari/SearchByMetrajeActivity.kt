@@ -13,22 +13,24 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import com.example.agrari.Model.AgrariPost
+import com.example.agrari.databinding.ActivityProfileBinding
+import com.example.agrari.databinding.ActivitySearchByMetrajeBinding
 import com.example.agrari.services.DB_Service
 import com.google.android.material.slider.RangeSlider
 
 class SearchByMetrajeActivity : AppCompatActivity() {
 
-    lateinit var metrajeRange: RangeSlider
     var terrenosController: PublicacionController= PublicacionController()
     var sensorManager: SensorManager? = null
     var lightSensor: Sensor? = null
     var lightSensorListener: SensorEventListener? = null
     private  lateinit var dbService: DB_Service
+    lateinit var binding: ActivitySearchByMetrajeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_by_metraje)
-        metrajeRange= findViewById(R.id.metrajeRangeSlider)
+        binding= ActivitySearchByMetrajeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         lightSensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
@@ -70,12 +72,43 @@ class SearchByMetrajeActivity : AppCompatActivity() {
                 intent.putExtra("post",posts.elementAt(position))
                 startActivity(intent)
             }
+        }
 
+        binding.button4.setOnClickListener {
+            println("THE RANGE VALUES: "+binding.metrajeRangeSlider.values)
+            this.dbService.getPostByMetrajeRange(binding.metrajeRangeSlider.values.get(0).toDouble(),binding.metrajeRangeSlider.values.get(1).toDouble()).addSnapshotListener { value, error ->
 
+                Log.w("LISTENER-DATA", "Listening the data...")
+
+                if (error != null) {
+                    Log.w("LISTENER-ERROR", "Listen failed.", error)
+                    return@addSnapshotListener
+                }
+
+                var posts= mutableListOf<AgrariPost>()
+                for (doc in value!!) {
+                    Log.i("USERS-COLLECTION-DATA", "NAME: ${doc.getString("name")}")
+                    posts.add(AgrariPost(doc))
+                }
+
+                terrenosGrid.adapter= PublicacionAdapter(this,posts)
+                terrenosGrid.setOnItemClickListener { parent, view, position, id ->
+                    intent= Intent(this,VerPublicacionActivity::class.java)
+                    intent.putExtra("post",posts.elementAt(position))
+                    startActivity(intent)
+                }
+            }
         }
 
 
     }
+
+
+
+
+
+
+
     override fun onResume() {
         super.onResume()
         sensorManager!!.registerListener(

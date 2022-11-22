@@ -26,6 +26,9 @@ class CategoryResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_result)
 
+
+        var category= intent.getStringExtra("category")
+
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         lightSensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
 
@@ -47,7 +50,7 @@ class CategoryResultActivity : AppCompatActivity() {
 
         var terrenosGrid: GridView = findViewById(R.id.terrenosGridxHomeVendedor)
 
-        this.dbService.getAllPosts().addSnapshotListener { value, error ->
+        this.dbService.getPostByCategory(category!!).addSnapshotListener { value, error ->
 
             Log.w("LISTENER-DATA", "Listening the data...")
 
