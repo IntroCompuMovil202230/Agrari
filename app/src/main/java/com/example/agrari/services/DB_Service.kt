@@ -3,6 +3,7 @@ package com.example.agrari.services
 import com.example.agrari.Model.AgrariCategory
 import com.example.agrari.Model.AgrariPost
 import com.example.agrari.Model.AgrariUser
+import com.example.agrari.Model.Chat
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentReference
@@ -16,6 +17,7 @@ class DB_Service {
 
     val userCollection: String = "users"
     val postsCollection: String = "posts"
+    val chatsCollection: String = "chats"
 
 
 
@@ -35,6 +37,31 @@ class DB_Service {
 
     fun addNewUser(newUser: AgrariUser){
         db.collection(this.userCollection).document(newUser.uid).set(newUser.toJson())
+    }
+
+
+    fun addNewChat(newChat: Chat){
+        var reference:DocumentReference= db.collection(this.chatsCollection).document()
+        newChat.uid=reference.id
+        db.collection(this.chatsCollection).document(newChat.uid).set(newChat.toJson())
+    }
+
+
+    fun updateChat(currentChat: Chat){
+        db.collection(this.chatsCollection).document(currentChat.uid).update(currentChat.toJson())
+    }
+
+    fun getChat(userUid: String, sellerUid: String):Query{
+        return db.collection(this.chatsCollection).whereEqualTo("uid_user",userUid).whereEqualTo("uid_seller",sellerUid)
+    }
+
+
+    fun getUserChats(userUid: String):Query{
+        return db.collection(this.chatsCollection).whereEqualTo("uid_user",userUid)
+    }
+
+    fun getSellerChats( sellerUid: String):Query{
+        return db.collection(this.chatsCollection).whereEqualTo("uid_seller",sellerUid)
     }
 
 

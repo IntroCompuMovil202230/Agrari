@@ -90,7 +90,7 @@ class AgrariPost: Serializable {
     fun setPostLocationInfo(location:LatLng, departamento: String){
         this.latitude=location.latitude.toFloat()
         this.longitude=location.longitude.toFloat()
-        this.departamento=departamento.substring(1,departamento.length-1)
+        this.departamento=departamento.substring(1,departamento.length)
         if(this.departamento=="Boyaca"){
             this.departamento="Boyacá"
         }else if(this.departamento=="Bogotá"){
