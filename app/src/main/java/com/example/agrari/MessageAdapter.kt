@@ -3,8 +3,10 @@ package com.example.agrari
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agrari.Model.Message
+import kotlinx.android.synthetic.main.item_message.view.*
 
 class MessageAdapter(private val user: String): RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
@@ -27,9 +29,8 @@ class MessageAdapter(private val user: String): RecyclerView.Adapter<MessageAdap
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         val message = messages[position]
-
-        // TODO corregir errores
-        /*if(user == message.from){
+        
+        if(user == message.from){
             holder.itemView.myMessageLayout.visibility = View.VISIBLE
             holder.itemView.otherMessageLayout.visibility = View.GONE
 
@@ -39,7 +40,7 @@ class MessageAdapter(private val user: String): RecyclerView.Adapter<MessageAdap
             holder.itemView.otherMessageLayout.visibility = View.VISIBLE
 
             holder.itemView.othersMessageTextView.text = message.message
-        }*/
+        }
 
     }
 

@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.agrari.Model.Message
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : AppCompatActivity() {
     var sensorManager: SensorManager? = null
@@ -67,9 +69,9 @@ class ChatActivity : AppCompatActivity() {
         sensorManager!!.unregisterListener(lightSensorListener)
     }
 
-    // TODO corregir errores
     private fun initViews(){
-        /*messagesRecylerView.layoutManager = LinearLayoutManager(this)
+
+        messagesRecylerView.layoutManager = LinearLayoutManager(this)
         messagesRecylerView.adapter = MessageAdapter(user)
 
         sendMessageButton.setOnClickListener { sendMessage() }
@@ -92,7 +94,7 @@ class ChatActivity : AppCompatActivity() {
                         (messagesRecylerView.adapter as MessageAdapter).setData(listMessages)
                     }
                 }
-            }*/
+            }
     }
 
     private fun sendMessage(){
