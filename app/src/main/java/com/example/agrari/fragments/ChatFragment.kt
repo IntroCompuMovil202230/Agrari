@@ -1,5 +1,6 @@
 package com.example.agrari.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,19 +22,19 @@ class ChatFragment : Fragment() {
     ): View? {
         binding= FragmentChatBinding.inflate(layoutInflater,container,false)
 
+        val activity: Activity? = activity
+        if(isAdded && activity != null){
+            val arrayAdapter: ArrayAdapter<String>
 
-        val arrayAdapter: ArrayAdapter<String>
+            val personas = mutableListOf("Vendedor: Carlos Alfonso\nSe vende terreno plano\n$150.0000","Vendedor: Laura Torres\nSe vende terrreno para vegetales\n$220.000","Vendedor:Diego Montero\nSe vende terreno con buena vista\n$180,000")
 
-        val personas = mutableListOf("Vendedor: Carlos Alfonso\nSe vende terreno plano\n$150.0000","Vendedor: Laura Torres\nSe vende terrreno para vegetales\n$220.000","Vendedor:Diego Montero\nSe vende terreno con buena vista\n$180,000")
+            arrayAdapter = ArrayAdapter(activity,android.R.layout.simple_expandable_list_item_1,personas)
+            binding!!.lista.adapter = arrayAdapter
 
-        arrayAdapter = ArrayAdapter(requireActivity(),android.R.layout.simple_expandable_list_item_1,personas)
-        binding!!.lista.adapter = arrayAdapter
-
-        binding!!.lista.setOnItemClickListener(){parent,view,position,id->
-            activity?.startActivity(Intent(activity, ChatActivity::class.java))
+            binding!!.lista.setOnItemClickListener(){parent,view,position,id->
+                activity.startActivity(Intent(activity, ChatActivity::class.java))
+            }
         }
-
-
 
         return binding!!.root
     }

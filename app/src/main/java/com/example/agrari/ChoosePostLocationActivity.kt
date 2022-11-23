@@ -135,10 +135,14 @@ class ChoosePostLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.chooseLocationButton.setOnClickListener {
             if(mapService!!.secondLocationMarket!=null){
-                this.currentPost.setPostLocationInfo(mapService!!.secondLocationMarket!!.position,geoCoderService.getDepartamentoFromLatLong(mapService!!.secondLocationMarket!!.position))
-                var intent = Intent(it.context,GetAreaMapActivity::class.java)
-                intent.putExtra("newPost",this.currentPost)
-                startActivity(intent)
+                try {
+                    this.currentPost.setPostLocationInfo(mapService!!.secondLocationMarket!!.position,geoCoderService.getDepartamentoFromLatLong(mapService!!.secondLocationMarket!!.position))
+                    var intent = Intent(it.context,GetAreaMapActivity::class.java)
+                    intent.putExtra("newPost",this.currentPost)
+                    startActivity(intent)
+                }catch (e:Exception){
+                    println(e.toString())
+                }
                 //var intent= Intent(it.context,GetAreaMapActivity::class.java)
                 //geoCoderService.getDepartamentoFromLatLong(mapService!!.secondLocationMarket!!.position)
                 //startActivity(intent)

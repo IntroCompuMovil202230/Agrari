@@ -58,11 +58,44 @@ class AgrariPost: Serializable {
         this.departamento = doc.getString("departamento")!!
     }
 
+    constructor(
+        uid: String,
+        seller_uid: String,
+        title: String,
+        price: Int,
+        image: String,
+        latitude: Float,
+        longitude: Float,
+        area: Float,
+        humidity: Float,
+        temperature: Float,
+        category: String,
+        departamento: String
+    ) {
+        this.uid = uid
+        this.seller_uid = seller_uid
+        this.title = title
+        this.price = price
+        this.image = image
+        this.latitude = latitude
+        this.longitude = longitude
+        this.area = area
+        this.humidity = humidity
+        this.temperature = temperature
+        this.category = category
+        this.departamento = departamento
+    }
+
 
     fun setPostLocationInfo(location:LatLng, departamento: String){
         this.latitude=location.latitude.toFloat()
         this.longitude=location.longitude.toFloat()
-        this.departamento=departamento
+        this.departamento=departamento.substring(1,departamento.length-1)
+        if(this.departamento=="Boyaca"){
+            this.departamento="Boyacá"
+        }else if(this.departamento=="Bogotá"){
+            this.departamento="Bogotá D.C."
+        }
     }
 
 
@@ -71,6 +104,7 @@ class AgrariPost: Serializable {
         this.humidity=humidity
         this.temperature=temperature
     }
+
 
 
 

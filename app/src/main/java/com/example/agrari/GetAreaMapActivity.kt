@@ -26,14 +26,22 @@ import com.example.agrari.services.AuthService
 import com.example.agrari.services.DB_Service
 import com.example.mapstest.LocationController
 import com.example.agrari.services.MapService
+import com.example.taller3_compu_movil.Notifications.NotificationData
+import com.example.taller3_compu_movil.Notifications.PushNotification
+import com.example.taller3_compu_movil.Notifications.RetrofitInstance
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class GetAreaMapActivity : AppCompatActivity(), OnMapReadyCallback {
+
 
 
     private lateinit var binding: ActivityGetAreaMapBinding
@@ -155,19 +163,27 @@ class GetAreaMapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-
-        binding.finalizarSubidoPost.setOnClickListener {
-            if(areaValue>0F){
-                this.currentPost.setAreaHumidityTemperature(areaValue,humidityValue,temperatureValue)
-                dbService.addNewPost(this.currentPost)
-                val intent = Intent(it.context, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-            }
-        }
-
         mapFragment = supportFragmentManager.findFragmentById(com.example.agrari.R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        binding.finalizarSubidoPost.setOnClickListener {view->
+            if(areaValue>0F){
+                this.currentPost.setAreaHumidityTemperature(areaValue,humidityValue,temperatureValue)
+                this.dbService.addNewPost(this.currentPost)
+                val title = "Nuevo post"
+                val message = "Mirálo y conoce tu terreno ideal."
+                if(title.isNotEmpty() && message.isNotEmpty()) {
+                    PushNotification(
+                        NotificationData(title, message),
+                        TOPIC
+                    ).also {
+                        sendNotification(it)
+                    }
+                    var intent=Intent(view.context,MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 
 
@@ -252,6 +268,22 @@ class GetAreaMapActivity : AppCompatActivity(), OnMapReadyCallback {
     fun changeMapLuminocity(eventValue: Float){
         this.mapService!!.changeMapLuminocity(eventValue)
         mapFragment.getMapAsync(this)
+    }
+
+
+    private fun sendNotification(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val response = RetrofitInstance.api.postNotification(notification)
+            println(response.message())
+            println(response.toString())
+            if(response.isSuccessful) {
+                Log.d("NOTIFICATION-DATA", "Response: ${Gson().toJson(response)}")
+            } else {
+                Log.e("RESPONSE-NOT-SUCCESFULL", response.errorBody().toString())
+            }
+        } catch(e: Exception) {
+            Log.e("ERROR-NOTIFICATION", e.toString())
+        }
     }
 
 }
