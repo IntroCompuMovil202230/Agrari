@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <EditText
-                        android:id="@+id/messageBox"
+                        android:id="@+id/messageTextField"
                         android:layout_gravity="start"
                         android:hint="Escribe tu mensaje..."
                         android:paddingStart="5dp"

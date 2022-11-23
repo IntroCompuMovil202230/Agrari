@@ -99,12 +99,12 @@ class ChatActivity : AppCompatActivity() {
 
     private fun sendMessage(){
         val message = Message(
-           // message = messageTextField.text.toString(),
+            message = messageTextField.text.toString(),
             from = user
         )
 
         db.collection("chats").document(chatId).collection("messages").document().set(message)
 
-        //messageTextField.setText("")
+        messageTextField.setText("")
     }
 }

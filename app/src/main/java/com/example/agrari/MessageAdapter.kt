@@ -29,7 +29,7 @@ class MessageAdapter(private val user: String): RecyclerView.Adapter<MessageAdap
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         val message = messages[position]
-        
+
         if(user == message.from){
             holder.itemView.myMessageLayout.visibility = View.VISIBLE
             holder.itemView.otherMessageLayout.visibility = View.GONE
