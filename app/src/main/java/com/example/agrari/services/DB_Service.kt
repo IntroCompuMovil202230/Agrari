@@ -37,6 +37,10 @@ class DB_Service {
         db.collection(this.userCollection).document(newUser.uid).set(newUser.toJson())
     }
 
+    fun updateUser(newUser: AgrariUser){
+        db.collection(this.userCollection).document(newUser.uid).update(newUser.toJson())
+    }
+
 
     fun addNewPost(newPost:AgrariPost){
          var reference:DocumentReference= db.collection(this.postsCollection).document()

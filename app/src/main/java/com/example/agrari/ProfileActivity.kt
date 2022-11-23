@@ -1,25 +1,32 @@
 package com.example.agrari
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.content.FileProvider
 import androidx.core.content.PermissionChecker
+import com.example.agrari.Model.AgrariUser
 import com.example.agrari.databinding.ActivityProfileBinding
 import com.example.agrari.databinding.ActivitySignUpRamainInfoBinding
 import com.example.agrari.fragments.UploadFragment
+import com.example.agrari.services.AuthService
+import com.example.agrari.services.DB_Service
+import com.example.taller3_compu_movil.controller.ImageEncodingController
 import java.io.File
 
 class ProfileActivity : AppCompatActivity() {
@@ -32,11 +39,17 @@ class ProfileActivity : AppCompatActivity() {
 
     lateinit var uriCamera: Uri
     lateinit var binding: ActivityProfileBinding
+    lateinit var email:String
+    lateinit var id:String
+    var pictureUri: Uri?=null
+    var imageEncodingController: ImageEncodingController = ImageEncodingController()
     var sensorManager: SensorManager? = null
     var lightSensor: Sensor? = null
     var lightSensorListener: SensorEventListener? = null
+    var new:AuthService = AuthService()
 
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityProfileBinding.inflate(layoutInflater)
@@ -68,6 +81,20 @@ class ProfileActivity : AppCompatActivity() {
             Log.i("CAMERA-CONTROLLER", "ACCESING CAMERA")
             this.openGallery()
         })
+
+        binding.remainInfoButton.setOnClickListener {
+            id = new.getCurrentUser()!!.uid
+            email = new.getCurrentUser()!!.email.toString()
+            var dbService: DB_Service = DB_Service()
+            var name:String = binding.nameSignUp.text.toString()
+            var lastName:String = binding.lastNameSignUp.text.toString()
+            var phoneNumber:String = binding.phoneSignUp.text.toString()
+
+            dbService.updateUser(AgrariUser(id,this.imageEncodingController.encodeImage(this.contentResolver, this.pictureUri),name,lastName,email,phoneNumber))
+
+            startActivity(Intent(this,HomeActivity::class.java))
+
+        }
 
     }
 
@@ -114,6 +141,7 @@ class ProfileActivity : AppCompatActivity() {
     { uri ->
         if(uri != null){
             Log.i("GALLERY URI", "The URI IS: $uri")
+            this.pictureUri=uri
             binding.profileSignUpPicture.setImageURI(uri)
         }
     }
@@ -143,6 +171,7 @@ class ProfileActivity : AppCompatActivity() {
                 bitmap ->
             if (bitmap){
                 Log.i("CAMERA CHOOSER","DATA: ${this.uriCamera}")
+                this.pictureUri=uriCamera
                 binding.profileSignUpPicture.setImageURI(uriCamera)
             }
         }
