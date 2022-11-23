@@ -25,21 +25,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="90dp"
-            android:orientation="vertical"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listChatsRecyclerView"
+            android:layout_width="384dp"
+            android:layout_height="521dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chatTitle">
-
-            <ListView
-                android:id="@+id/lista"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/chatTitle"
+            tools:listitem="@layout/item_chat" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

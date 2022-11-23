@@ -8,17 +8,20 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
 import com.example.agrari.databinding.ActivityVerPublicacionBinding
 import com.google.android.gms.maps.model.LatLng
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import com.example.agrari.Model.AgrariPost
+import com.example.agrari.Model.Chat
 import com.example.agrari.services.AuthService
 import com.example.taller3_compu_movil.controller.ImageEncodingController
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_ver_publicacion.*
+import java.util.*
 
 class VerPublicacionActivity : AppCompatActivity() {
     lateinit var publicacion: AgrariPost
@@ -28,6 +31,9 @@ class VerPublicacionActivity : AppCompatActivity() {
     var lightSensorListener: SensorEventListener? = null
     lateinit var imageEncodingController: ImageEncodingController
     lateinit var authService: AuthService
+
+    private var user = ""
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +68,6 @@ class VerPublicacionActivity : AppCompatActivity() {
         }
 
 
-
         binding.verDistanciaMapaButton.setOnClickListener {
             var intent= Intent(it.context,DistanceToTerrenoActivity::class.java)
             intent.putExtra("post",publicacion)
@@ -71,10 +76,9 @@ class VerPublicacionActivity : AppCompatActivity() {
 
         binding.enviarMensajeButton.setOnClickListener {
             Log.w("IDS-FOR-MESSAGE", "UserUID: ${authService.getCurrentUser()!!.uid}, ${this.publicacion.uid}")
+
+            newChat()
         }
-
-
-
 
     }
     override fun onResume() {
@@ -89,5 +93,27 @@ class VerPublicacionActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         sensorManager!!.unregisterListener(lightSensorListener)
+    }
+
+    private fun newChat(){
+        val chatId = UUID.randomUUID().toString()
+        val otherUser = publicacion.seller_uid
+        val desc = infoPublicacionTitulo.text.toString()
+
+        val chat = Chat(
+            id = chatId,
+            user = "Chat con $otherUser",
+            description = desc
+        )
+
+        db.collection("chats").document(chatId).set(chat)
+        db.collection("users").document(user).collection("chats").document(chatId).set(chat)
+        db.collection("users").document(otherUser).collection("chats").document(chatId).set(chat)
+
+        val intent = Intent(this, ChatActivity::class.java)
+        intent.putExtra("chatId", chatId)
+        intent.putExtra("user", user)
+        intent.putExtra("desc", desc)
+        startActivity(intent)
     }
 }
