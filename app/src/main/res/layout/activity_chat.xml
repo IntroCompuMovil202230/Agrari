@@ -6,88 +6,75 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".ChatActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="#239089"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:theme="?attr/actionBarTheme">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/linear01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             tools:ignore="MissingClass">
+
             <ImageView
                 android:id="@+id/imagen"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="60dp"/>
+                android:layout_height="60dp"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/perfil"
                 android:layout_width="42dp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
                 android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:visibility="visible"
                 app:srcCompat="@drawable/ic_launcher_foreground" />
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/name"
-                    android:text="Nombre de perfil"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:text="Nombre de perfil"
                     android:textAlignment="center"
-                    android:textStyle="bold|normal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|normal" />
 
             </LinearLayout>
 
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_below="@+id/toolbar"
-        android:id="@+id/linear01"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messagesRecylerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentBottom="true"
+        tools:listitem="@layout/item_message" />
 
-
-        <TextView
-            android:id="@+id/myMessageTextView"
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
-            android:text="TextView" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/send_drawable" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="99dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/receive_drawable" />
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/linear02"
-        android:layout_above="@id/linear01"
+        android:layout_above="@id/messagesRecylerView"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -130,23 +117,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-
                 </LinearLayout>
 
             </LinearLayout>
 
-
         </androidx.cardview.widget.CardView>
 
-        <ImageButton
-            android:layout_gravity="center"
-            android:layout_marginEnd="9dp"
-            android:id="@+id/send"
-            android:padding="12dp"
+        <Button
+            android:id="@+id/enviar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_enviar" />
-
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/DarkGreen"
+            android:text="Enviar" />
 
     </LinearLayout>
 

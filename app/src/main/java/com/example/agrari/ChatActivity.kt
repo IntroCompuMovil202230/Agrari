@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.agrari.Model.Message
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -66,8 +67,9 @@ class ChatActivity : AppCompatActivity() {
         sensorManager!!.unregisterListener(lightSensorListener)
     }
 
+    // TODO corregir errores
     private fun initViews(){
-        messagesRecylerView.layoutManager = LinearLayoutManager(this)
+        /*messagesRecylerView.layoutManager = LinearLayoutManager(this)
         messagesRecylerView.adapter = MessageAdapter(user)
 
         sendMessageButton.setOnClickListener { sendMessage() }
@@ -77,6 +79,7 @@ class ChatActivity : AppCompatActivity() {
         chatRef.collection("messages").orderBy("dob", Query.Direction.ASCENDING)
             .get()
             .addOnSuccessListener { messages ->
+
                 val listMessages = messages.toObjects(Message::class.java)
                 (messagesRecylerView.adapter as MessageAdapter).setData(listMessages)
             }
@@ -89,19 +92,17 @@ class ChatActivity : AppCompatActivity() {
                         (messagesRecylerView.adapter as MessageAdapter).setData(listMessages)
                     }
                 }
-            }
+            }*/
     }
 
     private fun sendMessage(){
         val message = Message(
-            message = messageTextField.text.toString(),
+           // message = messageTextField.text.toString(),
             from = user
         )
 
         db.collection("chats").document(chatId).collection("messages").document().set(message)
 
-        messageTextField.setText("")
-
-
+        //messageTextField.setText("")
     }
 }
